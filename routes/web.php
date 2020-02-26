@@ -12,9 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('bookings');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/bookings', 'BookingController@index');
+Route::get('/bookings/create', 'BookingController@create');
+Route::get('/bookings/{booking}', 'BookingController@show');
+
