@@ -5,20 +5,53 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">New Booking</div>
+                    <div class="card-header heading has-text-weight-bold is-size-4">New Booking</div>
 
                     <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+                        <form action="">
 
-                            <form action="">
+                            <div class="field">
+                                <label for="name" class="label">Name</label>
                                 <div class="control">
-                                    <input type="text" class="input" name="title" id="title">
+                                    <input type="text" class="input" name="name" id="name">
                                 </div>
-                            </form>
+                            </div>
+
+                            <div class="field">
+                                <label for="phone" class="label">Phone</label>
+                                <div class="control">
+                                    <input type="text" class="input" name="phone" id="phone">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="address" class="label">Address</label>
+                                <div class="control">
+                                    <input type="text" class="input" name="address" id="address">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="wifi" class="label">Wi-Fi</label>
+                                <div class="control">
+                                    <input type="checkbox" class="form-check" name="wifi" id="address">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="desc" class="label">Description</label>
+                                <div class="control">
+                                    <textarea type="textarea" class="input" name="desc" id="desc"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <button class="button is-link" type="submit">Submit</button>
+                                </div>
+                            </div>
+
+                        </form>
                     </div>
                 </div>
             </div>
