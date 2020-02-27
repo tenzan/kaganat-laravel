@@ -1,15 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header heading has-text-weight-bold is-size-4">New Booking</div>
+    <div id="wrapper">
+            <div id="page" class="container">
+                    <h1 class="heading has-text-weight-bold is-size-4">New Booking</h1>
 
-                    <div class="card-body">
                         <form action="">
-
                             <div class="field">
                                 <label for="name" class="label">Name</label>
                                 <div class="control">
@@ -41,7 +37,7 @@
                             <div class="field">
                                 <label for="desc" class="label">Description</label>
                                 <div class="control">
-                                    <textarea type="textarea" class="input" name="desc" id="desc"></textarea>
+                                    <textarea class="textarea" name="desc" id="desc"></textarea>
                                 </div>
                             </div>
 
@@ -50,11 +46,8 @@
                                     <button class="button is-link" type="submit">Submit</button>
                                 </div>
                             </div>
-
                         </form>
-                    </div>
-                </div>
+
             </div>
-        </div>
     </div>
 @endsection
