@@ -5,7 +5,9 @@
             <div id="page" class="container">
                     <h1 class="heading has-text-weight-bold is-size-4">New Booking</h1>
 
-                        <form action="">
+                        <form method="POST" action="/bookings">
+                            @csrf
+
                             <div class="field">
                                 <label for="name" class="label">Name</label>
                                 <div class="control">
@@ -30,7 +32,7 @@
                             <div class="field">
                                 <label for="wifi" class="label">Wi-Fi</label>
                                 <div class="control">
-                                    <input type="checkbox" class="form-check" name="wifi" id="address">
+                                    <input type="checkbox" class="form-check" name="wifi" id="wifi">
                                 </div>
                             </div>
 

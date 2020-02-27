@@ -28,12 +28,21 @@ class BookingController extends Controller
 
     public function store()
     {
+        $booking = new Booking();
+        $booking->user_id = 1;
+        $booking->name = request('name');
+        $booking->phone = request('phone');
+        $booking->wifi = request('wifi');
+        $booking->address = request('address');
+        $booking->desc = request('desc');
+        $booking->save();
 
+        return redirect('/bookings');
     }
 
     public function edit()
     {
-
+        return view('bookings.edit');
     }
 
     public function update()
