@@ -32,7 +32,7 @@ class BookingController extends Controller
         $booking->user_id = 1;
         $booking->name = request('name');
         $booking->phone = request('phone');
-        $booking->wifi = request('wifi');
+        $booking->wifi = request()->has('wifi');
         $booking->address = request('address');
         $booking->desc = request('desc');
         $booking->save();
