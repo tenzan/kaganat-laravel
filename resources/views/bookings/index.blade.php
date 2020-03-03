@@ -1,23 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Bookings Listing</div>
+    <div id="wrapper">
+        <div id="page" class="container">
 
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        Items will be listed here.
+            @foreach($bookings as $booking)
+                <div class="content">
+                    <div class="title">
+                        <a href="/bookings/{{ $booking->id }}">
+                            {{ $booking->name }}
+                        </a>
                     </div>
+                    {{ $booking->address }}
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
 @endsection

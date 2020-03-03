@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('bookings');
+    return Redirect::to('bookings');
 });
 
 Auth::routes();
@@ -24,4 +24,4 @@ Route::post('/bookings', 'BookingController@store');
 Route::get('/bookings/create', 'BookingController@create');
 Route::get('/bookings/{booking}', 'BookingController@show');
 Route::get('/bookings/{booking}/edit', 'BookingController@edit');
-
+Route::put('/bookings/{booking}', 'BookingController@update');
