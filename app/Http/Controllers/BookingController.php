@@ -40,14 +40,25 @@ class BookingController extends Controller
         return redirect('/bookings');
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('bookings.edit');
+        $booking = Booking::find($id);
+
+        return view('bookings.edit', compact('booking'));
     }
 
-    public function update()
+    public function update($id)
     {
+        $booking = Booking::find($id);
 
+        $booking->name = request('name');
+        $booking->phone = request('phone');
+        $booking->wifi = request()->has('wifi');
+        $booking->address = request('address');
+        $booking->desc = request('desc');
+        $booking->save();
+
+        return redirect('/bookings/' . $booking->id);
     }
 
     public function destroy()
