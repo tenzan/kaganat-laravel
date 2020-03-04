@@ -26,12 +26,7 @@ class BookingController extends Controller
 
     public function store()
     {
-        Booking::create(request()->validate([
-            'name' => 'required',
-            'phone' => 'required',
-            'address' => 'required',
-            'desc' => 'required'
-        ]));
+        Booking::create($this->validateBooking());
 
         return redirect('/bookings');
     }
@@ -43,12 +38,7 @@ class BookingController extends Controller
 
     public function update(Booking $booking)
     {
-        $booking->update(request()->validate([
-            'name' => 'required',
-            'phone' => 'required',
-            'address' => 'required',
-            'desc' => 'required'
-        ]));
+        $booking->update($this->validateBooking());
 
         return redirect('/bookings/' . $booking->id);
     }
@@ -56,5 +46,18 @@ class BookingController extends Controller
     public function destroy()
     {
 
+    }
+
+    /**
+     * @return array
+     */
+    public function validateBooking(): array
+    {
+        return request()->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'desc' => 'required'
+        ]);
     }
 }
