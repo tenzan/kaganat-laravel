@@ -28,6 +28,14 @@ class BookingController extends Controller
 
     public function store()
     {
+        request()->validate([
+           'name' => 'required',
+           'phone' => 'required',
+           'address' => 'required',
+            'wifi' => 'required',
+            'desc' => 'required'
+        ]);
+
         $booking = new Booking();
         $booking->user_id = 1;
         $booking->name = request('name');
@@ -49,6 +57,14 @@ class BookingController extends Controller
 
     public function update($id)
     {
+        request()->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'wifi' => 'required',
+            'desc' => 'required'
+        ]);
+        
         $booking = Booking::find($id);
 
         $booking->name = request('name');
