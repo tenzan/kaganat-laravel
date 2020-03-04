@@ -58,15 +58,11 @@
                 <div class="field">
                     <label for="wifi" class="label">Wi-Fi</label>
                     <div class="control">
-                        <input class="form-check @error('wifi') is-danger @enderror"
+                        <input class="form-check"
                                type="checkbox"
                                name="wifi"
                                id="wifi"
                                value="{{old('address')}}">
-
-                        @error('wifi')
-                        <p class="help is-danger">{{$errors->first('wifi')}}</p>
-                        @enderror
                     </div>
                 </div>
 

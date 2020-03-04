@@ -18,7 +18,7 @@ class CreateBookingsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('phone');
-            $table->boolean('wifi');
+            $table->boolean('wifi')->default(0);
             $table->string('address');
             $table->text('desc');
             $table->timestamps();

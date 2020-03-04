@@ -14,10 +14,8 @@ class BookingController extends Controller
         return view('bookings.index', ['bookings' => $bookings]);
     }
 
-    public function show($id)
+    public function show(Booking $booking)
     {
-        $booking = Booking::find($id);
-
         return view('bookings.show', ['booking' => $booking]);
     }
 
@@ -28,51 +26,29 @@ class BookingController extends Controller
 
     public function store()
     {
-        request()->validate([
-           'name' => 'required',
-           'phone' => 'required',
-           'address' => 'required',
-            'wifi' => 'required',
+        Booking::create(request()->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
             'desc' => 'required'
-        ]);
-
-        $booking = new Booking();
-        $booking->user_id = 1;
-        $booking->name = request('name');
-        $booking->phone = request('phone');
-        $booking->wifi = request()->has('wifi');
-        $booking->address = request('address');
-        $booking->desc = request('desc');
-        $booking->save();
+        ]));
 
         return redirect('/bookings');
     }
 
-    public function edit($id)
+    public function edit(Booking $booking)
     {
-        $booking = Booking::find($id);
-
         return view('bookings.edit', compact('booking'));
     }
 
-    public function update($id)
+    public function update(Booking $booking)
     {
-        request()->validate([
+        $booking->update(request()->validate([
             'name' => 'required',
             'phone' => 'required',
             'address' => 'required',
-            'wifi' => 'required',
             'desc' => 'required'
-        ]);
-        
-        $booking = Booking::find($id);
-
-        $booking->name = request('name');
-        $booking->phone = request('phone');
-        $booking->wifi = request()->has('wifi');
-        $booking->address = request('address');
-        $booking->desc = request('desc');
-        $booking->save();
+        ]));
 
         return redirect('/bookings/' . $booking->id);
     }
