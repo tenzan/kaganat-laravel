@@ -22,6 +22,11 @@ class CreateBookingsTable extends Migration
             $table->string('address');
             $table->text('desc');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 
